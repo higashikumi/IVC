@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+
+    <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"/>
+    
+    <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <props>
+                <prop key="index.htm">loginController</prop>
+                <prop key="login.htm">loginController</prop>
+                
+                <!--<prop key="establecimientos.htm">establecimientosController</prop>-->
+                
+                <prop key="establecimiento.htm">establecimientosController</prop>
+                <prop key="visita.htm">visitaController</prop>
+                <prop key="autoregulacion.htm">establecimientosController</prop>
+                <prop key="representante.htm">establecimientosController</prop>
+                
+                
+                <prop key="solicitarvisita.htm">visitaController</prop>
+                <prop key="resultadovisitas.htm">visitaController</prop>
+                <prop key="estadovisitas.htm">visitaController</prop>
+                
+                <prop key="solicitarvisitacobb.htm">visitaController</prop>
+                <prop key="solicitarvisitasda.htm">visitaController</prop>
+                <prop key="solicitarvisitasds.htm">visitaController</prop>                
+
+                <prop key="estadovisitacobb.htm">visitaController</prop>
+                <prop key="estadovisitasda.htm">visitaController</prop>
+                <prop key="estadovisitasds.htm">visitaController</prop>
+                
+                <prop key="administrador.htm">adminloginController</prop>
+                <prop key="admintramites.htm">entidadesController</prop>
+                <prop key="editartramite.htm">entidadesController</prop>
+                <prop key="adminactividades.htm">entidadesController</prop>
+                <prop key="editaractividad.htm">entidadesController</prop>
+                <prop key="visitasentidad.htm">entidadesController</prop>
+                <prop key="actualizarbomberos.htm">entidadesController</prop>
+                
+                <prop key="tramites.htm">tramitesController</prop>
+                <prop key="resultados.htm">tramitesController</prop>
+                <prop key="tramite.htm">tramitesController</prop>
+                <prop key="bomberos.htm">tramitesController</prop>
+                <prop key="ambiente.htm">tramitesController</prop>
+                <prop key="salud.htm">tramitesController</prop>
+                <prop key="normas.htm">tramitesController</prop>
+                <prop key="pot.htm">tramitesController</prop>
+                
+                
+                <prop key="logout.htm">generalController</prop>
+            </props>
+        </property>
+    </bean>
+       
+    <bean id="viewResolver"
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+          p:prefix="/WEB-INF/jsp/"
+          p:suffix=".jsp" />
+
+    <bean name="indexController"
+          class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+          p:viewName="index" />
+          
+    <bean name="loginController" class="co.digiart.ivc.controllers.LoginController" />
+    <bean name="adminloginController" class="co.digiart.ivc.controllers.AdminLoginController" >
+        </bean>
+    
+    
+    <bean name="establecimientosController" class="co.digiart.ivc.controllers.EstablecimientosController">
+        <property name="methodNameResolver">
+            <bean id="establecimientosResolver"
+                   class="org.springframework.web.servlet.mvc.multiaction.PropertiesMethodNameResolver"
+                   lazy-init="default">
+                <property name="mappings">
+                    <props>
+                        <!--<prop key="/establecimientos.htm">showlist</prop>-->
+                        <prop key="/establecimiento.htm">establecimiento</prop>
+                        <prop key="/autoregulacion.htm">autoregulacion</prop>
+                        <prop key="/representante.htm">representante</prop>
+                    </props>
+                </property>
+            </bean>
+        </property>
+    </bean>
+    
+    <bean name="visitaController" class="co.digiart.ivc.controllers.VisitaController">
+        <property name="methodNameResolver">
+            <bean id="visitaResolver"
+                   class="org.springframework.web.servlet.mvc.multiaction.PropertiesMethodNameResolver"
+                   lazy-init="default">
+                <property name="mappings">
+                    <props>
+                        <prop key="/visita.htm">visita</prop>
+                        <prop key="/solicitarvisita.htm">solicitarvisita</prop>
+                        <prop key="/resultadovisitas.htm">resultadovisitas</prop>
+                        <prop key="/estadovisitas.htm">estadovisitas</prop>
+                        
+                        <prop key="/solicitarvisitacobb.htm">solicitarvisitacobb</prop>
+                        <prop key="/solicitarvisitasda.htm">solicitarvisita</prop>
+                        <prop key="/solicitarvisitasds.htm">solicitarvisita</prop>                
+                        <prop key="/estadovisitacobb.htm">estadovisitas</prop>
+                        <prop key="/estadovisitasda.htm">estadovisitas</prop>
+                        <prop key="/estadovisitasds.htm">estadovisitas</prop>
+                        
+                    </props>
+                </property>
+            </bean>
+        </property>
+    </bean>
+    
+    <bean name="tramitesController" class="co.digiart.ivc.controllers.TramitesController">
+        <property name="methodNameResolver">
+            <bean id="tramitesResolver"
+                   class="org.springframework.web.servlet.mvc.multiaction.PropertiesMethodNameResolver"
+                   lazy-init="default">
+                <property name="mappings">
+                    <props>
+                        <prop key="/tramites.htm">index</prop>
+                        <prop key="/resultados.htm">resultados</prop>
+                        <prop key="/tramite.htm">tramite</prop>
+                        <prop key="/bomberos.htm">entidad</prop>
+                        <prop key="/ambiente.htm">entidad</prop>
+                        <prop key="/salud.htm">entidad</prop>
+                        <prop key="/normas.htm">normas</prop>
+                        <prop key="/pot.htm">pot</prop>
+                    </props>
+                </property>
+            </bean>
+        </property>
+    </bean>
+    
+    <bean name="entidadesController" class="co.digiart.ivc.controllers.EntidadesController">
+        <property name="methodNameResolver">
+            <bean id="entidadesResolver"
+                   class="org.springframework.web.servlet.mvc.multiaction.PropertiesMethodNameResolver"
+                   lazy-init="default">
+                <property name="mappings">
+                    <props>
+                        <prop key="/visitasentidad.htm">visitas</prop>
+                        <prop key="/actualizarbomberos.htm">actualizarbomberos</prop>
+                        
+                        <prop key="/admintramites.htm">tramites</prop>
+                        <prop key="/editartramite.htm">editartramite</prop>
+                        <prop key="/adminactividades.htm">actividades</prop>
+                        <prop key="/editaractividad.htm">actividad</prop>
+                    </props>
+                </property>
+            </bean>
+        </property>
+    </bean>
+    
+    <bean name="generalController" class="co.digiart.ivc.controllers.GeneralController">
+        <property name="methodNameResolver">
+            <bean id="generalResolver"
+                   class="org.springframework.web.servlet.mvc.multiaction.PropertiesMethodNameResolver"
+                   lazy-init="default">
+                <property name="mappings">
+                    <props>
+                        <prop key="/logout.htm">logout</prop>
+                    </props>
+                </property>
+            </bean>
+        </property>
+    </bean>
+    
+    <bean id="empresarioDAO" class="co.digiart.ivc.dao.JdbcEmpresarioDAO">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+    
+    <bean id="establecimientoDAO" class="co.digiart.ivc.dao.JdbcEstablecimientoDAO">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+    
+    
+
+</beans>

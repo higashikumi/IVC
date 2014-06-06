@@ -1,0 +1,48 @@
+.choose-entidad p{text-align:center}
+.choose-entidad label{width:150px;display:inline-block}
+.choose-entidad input{width:150px;padding:5px 10px}
+.choose-entidad select{width:170px;padding:5px 10px}
+.form-buttons{text-align:center;margin:10px 0px}
+
+.left-menu{display:block}
+.left-menu li{display:block;list-style:none;width:90%;margin:auto;margin:1px 0px;height:20px;border:solid 1px #7E7E7E;;padding:5px 10px;font-size:13px}
+.left-menu li a{width:100%;display:block;height:100%;text-decoration:none;text-align:left;font-family:'HelveticaLTStdRoman',Arial,Helvetica,sans-serif}
+.left-menu li.selected{background: #A9A8A8}
+
+.ivc-table{border-spacing:0px;width:100%;font-family:'HelveticaLTStdRoman',Arial,Helvetica,sans-serif;margin-top:20px;background:#A9A8A8;color:#fff}
+.ivc-table thead tr th{padding:5px 10px;text-align:center}
+.ivc-table tbody tr{font-size:14px}
+.ivc-table tbody tr:nth-child(2n){background:#ddd;color:#000}
+.ivc-table tbody tr:nth-child(2n+1){background:#fff;color:#000}
+.ivc-table tbody tr td{padding:5px 10px}
+.ivc-table tbody tr td.centered{text-align:center}
+.ivc-table tbody tr td input{width:auto;height:auto}
+
+.filter-bottom{text-align:right;font-family:'HelveticaLTStdRoman',Arial,Helvetica,sans-serif;font-size:12px;margin-top:20px}
+.filter-bottom label{width:200px}
+.filter-bottom select{width:300px}
+
+#header_small{margin-top:11px}
+#header_small #logo{background:url('../images/logo_ivc.jpg') no-repeat;float:none;height:200px}
+
+.error{color:#bf1616}
+
+.general-mapper{width:960px;border:solid 1px #7E7E7E; background:#fff;margin:10px auto;padding:10px 20px}
+.general-mapper a{text-decoration:none;color:#666}
+.general-mapper a:hover{text-decoration:underline;color:#999}
+.capitalized{text-transform:lowercase;text-transform:capitalize}
+
+.action-opts li{display:block;}
+.action-opts li:hover{background:#ddd}
+.action-opts li a{text-decoration:none;color:#666}
+.action-opts .sub-action{display:none;position:absolute;padding:10px 20px;border:1px solid #7E7E7E;background:#fff;width:150px;margin:-16px 0 0 20px;box-shadow: 10px 10px 5px #888888;}
+.action-opts .sub-action li{display:block}
+.action-opts .sub-action li:hover{background:#ddd}
+
+.form-ul li{list-style:none}
+
+.res-tramite{padding:10px; border-bottom:1px solid #ddd}
+
+.form-container label{display:block;margin:10px 0 3px;font-family: 'HelveticaLTStdRoman',Arial, Helvetica, sans-serif;width:100%}
+.form-container input,.form-container select,.form-container textarea{display:block;margin-left:30px;width:80%}
+.form-container textarea{width:80%}

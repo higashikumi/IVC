@@ -1,0 +1,20 @@
+/* 
+    Document   : styles
+    Created on : 19/03/2014, 06:08:34 PM
+    Author     : Julian
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+
+body{font-family:Verdana, Geneva, sans-serif}
+
+
+
+/** GENREAL **/ 
+.general{width:90%;margin:auto}
+
+/** HOME **/
